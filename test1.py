@@ -4,7 +4,6 @@ import io
 
 
 def process_data(df):
-    df = pd.read_excel('data.xlsx')
     grouped = df.groupby('ID')['URL'].apply(list)
     df_expanded = pd.DataFrame(grouped.tolist(), index=grouped.index)
     df_expanded.columns = [f'URL_{i+1}' for i in range(df_expanded.shape[1])]
